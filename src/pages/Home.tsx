@@ -1,0 +1,29 @@
+import MainLayout from "./MainLayout";
+import { useUserData } from "../hooks/useUser";
+import { useAuth } from "../context/AuthContext";
+
+
+const Home = () => {
+  const { userId }  = useAuth();
+
+  // Prevent API calls if userId is null
+  const { userData, loading } = useUserData(userId);
+
+  if (!userId) {
+    return <p>User not logged in. Redirect to login.</p>;
+  }
+  
+  if (loading) return <p>Loading...</p>;
+  if (!userData) return <p>No user data found.</p>;
+
+  return (
+    <MainLayout title="Dashboard">
+      <h2>Welcome, {userData.EmployeeName}!</h2>
+      <p>Email: {userData.EmailAddress}</p>
+    </MainLayout>
+  );
+  
+};
+
+export default Home;
+
