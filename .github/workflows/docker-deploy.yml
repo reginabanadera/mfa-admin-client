@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: reginabanadera/mfa_admin_client:latest
+          tags: reginabanadera/kwe_mfa_admin_client:latest
 
           build-args: |
             VITE_API_URL=${{ secrets.VITE_API_URL }}
