@@ -30,4 +30,4 @@ jobs:
           tags: reginabanadera/mfa_admin_client:latest
 
           build-args: |
-            VITE_SERVER_API_URL=${{ secrets.VITE_SERVER_API_URL }}
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
